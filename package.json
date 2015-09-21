@@ -1,5 +1,5 @@
 {
-  "name": "wfm-workflow",
+  "name": "fh-wfm-workflow",
   "version": "0.0.1",
   "description": "A workflow module for WFM",
   "main": "workflow.js",
@@ -12,7 +12,7 @@
     "workflow"
   ],
   "author": "Brian Leathem",
-  "license": "ISC",
+  "license": "Copyright (c) 2015 FeedHenry Ltd, All Rights Reserved.",
   "devDependencies": {
     "wfm-template-build": "bleathem/wfm-template-build"
   }

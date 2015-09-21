@@ -16,7 +16,9 @@ function initRouter(mediator) {
   return router;
 };
 
-module.exports = function(mediator, app) {
-  var router = initRouter(mediator);
-  app.use(config.apiPath, router);
+module.exports = function(mediator) {
+  return {
+    apiPath: config.apiPath
+  , router = initRouter(mediator)
+  };
 };
