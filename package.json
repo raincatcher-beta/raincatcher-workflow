@@ -15,5 +15,8 @@
   "license": "Copyright (c) 2015 FeedHenry Ltd, All Rights Reserved.",
   "devDependencies": {
     "wfm-template-build": "bleathem/wfm-template-build"
+  },
+  "peerDependencies": {
+    "express": "^4.0.0"
   }
 }
