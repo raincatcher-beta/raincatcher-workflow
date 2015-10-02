@@ -76,7 +76,16 @@ ngModule.directive('workflowProgress', function($timeout) {
   , link: function (scope, element, attrs) {
       scope.$watch('step', function(step) {
         if (scope.step) {
-          if (scope.step.templatePath) {
+          if (scope.step.formId) {
+            mediator.publish('wfm:appform:form:load', scope.step.formId);
+            mediator.promise('wfm:appform:form:loaded').then(function(form) {
+              scope.$apply(function() {
+                scope.form = form;
+                element.html('<appform-mobile form="form"></appform-mobile>');
+                $compile(element.contents())(scope);
+              });
+            })
+          } else if (scope.step.templatePath) {
             $templateRequest(scope.step.templatePath).then(function(template) {
               element.html(template);
               $compile(element.contents())(scope);
@@ -103,9 +112,15 @@ ngModule.directive('workflowProgress', function($timeout) {
       element.children().remove();
       scope.steps.forEach(function(step, i) {
         if (i==0 || scope.workorder.steps && scope.workorder.steps[step.code] === 'complete' ) {
-          var template = portal && step.templates.portal && step.templates.portal.view
-            ? step.templates.portal.view
-            : step.templates.view
+          var template;
+          if (step.formId) {
+            template = portal ? '<appform-portal-submission-view submission-id="workorder.appformStep.submissionId" submission-local-id="workorder.appformStep.submissionLocalId"></appform-portal-submission-view>'
+                              : '<appform-mobile-submission-view submission-id="workorder.appformStep.submissionId" submission-local-id="workorder.appformStep.submissionLocalId"></appform-mobile-submission-view>';
+          } else {
+            template = portal && step.templates.portal && step.templates.portal.view
+              ? step.templates.portal.view
+              : step.templates.view;
+          };
           element.append(template);
         }
       });
