@@ -114,14 +114,20 @@ ngModule.directive('workflowProgress', function($timeout) {
         if (i==0 || scope.workorder.steps && scope.workorder.steps[step.code] && scope.workorder.steps[step.code].status === 'complete' ) {
           var template;
           if (step.formId) {
-            template = portal ? '<appform-portal-submission-view submission-id="workorder.steps[\''+step.code+'\'].submission.submissionId" submission-local-id="workorder.steps[\''+step.code+'\'].submission.submissionLocalId"></appform-portal-submission-view>'
-                              : '<appform-mobile-submission-view submission-id="workorder.steps[\''+step.code+'\'].submission.submissionId" submission-local-id="workorder.steps[\''+step.code+'\'].submission.submissionLocalId"></appform-mobile-submission-view>';
+            template = portal && false ? '<appform-portal-submission-view submission-id="workorder.steps[\''+step.code+'\'].submission.submissionId" submission-local-id="workorder.steps[\''+step.code+'\'].submission._submissionLocalId"></appform-portal-submission-view>'
+                              : '<appform-mobile-submission-view submission-id="workorder.steps[\''+step.code+'\'].submission.submissionId" submission-local-id="workorder.steps[\''+step.code+'\'].submission._submissionLocalId"></appform-mobile-submission-view>';
           } else {
             template = portal && step.templates.portal && step.templates.portal.view
               ? step.templates.portal.view
               : step.templates.view;
           };
-          element.append(template);
+          if (portal && i != 0) {
+            var padding = angular.element('<div layout-padding layout-margin class="md-body-1"></div>');
+            padding.append(template);
+            element.append(padding);
+          } else {
+            element.append(template);
+          }
         }
       });
       $compile(element.contents())(scope);
