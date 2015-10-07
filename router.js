@@ -12,6 +12,21 @@ function initRouter(mediator) {
       res.json(steps);
     });
   });
+  router.route('/').get(function(req, res, next) {
+    mediator.publish('workflows:load');
+    mediator.once('workflows:loaded', function(workflows) {
+      res.json(workflows);
+    });
+  });
+  router.route('/:id').put(function(req, res, next) {
+    var workflowId = req.params.id;
+    var workflow = req.body;
+    // console.log('req.body', req.body);
+    mediator.once('workflow:saved:' + workflowId, function(savedWorkflow) {
+      res.json(savedWorkflow);
+    });
+    mediator.publish('workflow:save', workflow);
+  });
 
   return router;
 };

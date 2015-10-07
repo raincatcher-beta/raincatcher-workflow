@@ -3,15 +3,27 @@
 var angular = require('angular');
 var config = require('./config');
 var ngModule = angular.module('wfm.workflow', ['wfm.core.mediator', 'ngFeedHenry'])
+var _ = require('lodash');
 
 ngModule.run(function($q, $timeout, mediator, FHCloud) {
-  var promise = FHCloud.get(config.apiPath + '/steps').then(function(response) {
+  var promise = FHCloud.get(config.apiPath).then(function(response) {
     return response;
+  }, function(err) {
+    console.error(err);
   }); // TODO: introduce retry/error-handling logic
 
-  mediator.subscribe('workflow:steps:load', function() {
-    promise.then(function(workflowSteps) {
-      mediator.publish('workflow:steps:loaded', workflowSteps);
+  mediator.subscribe('workflows:load', function() {
+    promise.then(function(workflows) {
+      mediator.publish('workflows:loaded', workflows);
+    });
+  });
+
+  mediator.subscribe('workflow:load', function(id) {
+    promise.then(function(workflows) {
+      var workflow = _.find(workflows, function(_workflow) {
+        return _workflow.id == id;
+      });
+      mediator.publish('workflow:loaded', workflow);
     });
   });
 })
