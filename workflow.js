@@ -124,10 +124,13 @@ ngModule.directive('workflowProgress', function($timeout) {
       element.children().remove();
       scope.workflow.steps.forEach(function(step, i) {
         if (i==0 || scope.workorder.steps && scope.workorder.steps[step.code] && scope.workorder.steps[step.code].status === 'complete' ) {
-          var template;
+          var template = '';
           if (step.formId) {
-            template = portal && false ? '<appform-portal-submission-view submission-id="workorder.steps[\''+step.code+'\'].submission.submissionId" submission-local-id="workorder.steps[\''+step.code+'\'].submission._submissionLocalId"></appform-portal-submission-view>'
-                              : '<appform-mobile-submission-view submission-id="workorder.steps[\''+step.code+'\'].submission.submissionId" submission-local-id="workorder.steps[\''+step.code+'\'].submission._submissionLocalId"></appform-mobile-submission-view>';
+            var submission = scope.workorder.steps[step.code].submission;
+            if (submission.submissionId || submission._submissionLocalId) {
+              template = portal && false ? '<appform-portal-submission-view submission-id="workorder.steps[\''+step.code+'\'].submission.submissionId" submission-local-id="workorder.steps[\''+step.code+'\'].submission._submissionLocalId"></appform-portal-submission-view>'
+                                         : '<appform-mobile-submission-view submission-id="workorder.steps[\''+step.code+'\'].submission.submissionId" submission-local-id="workorder.steps[\''+step.code+'\'].submission._submissionLocalId"></appform-mobile-submission-view>';
+            }
           } else {
             template = portal && step.templates.portal && step.templates.portal.view
               ? step.templates.portal.view
