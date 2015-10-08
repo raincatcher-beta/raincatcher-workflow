@@ -82,8 +82,8 @@ ngModule.directive('workflowProgress', function($timeout) {
     restrict: 'E'
   , scope: {
       step: '=' // { ..., template: "an html template to use", templatePath: "a template path to load"}
-    , steps: '='
     , workorder: '='
+    , workflow: '='
     }
   , link: function (scope, element, attrs) {
       scope.$watch('step', function(step) {
@@ -119,10 +119,10 @@ ngModule.directive('workflowProgress', function($timeout) {
 
 .directive('workflowStepSummary', function($compile) {
   var render = function(scope, element, attrs) {
-    if (scope.steps && scope.workorder) {
+    if (scope.workflow.steps && scope.workorder) {
       var portal = scope.portal === 'true';
       element.children().remove();
-      scope.steps.forEach(function(step, i) {
+      scope.workflow.steps.forEach(function(step, i) {
         if (i==0 || scope.workorder.steps && scope.workorder.steps[step.code] && scope.workorder.steps[step.code].status === 'complete' ) {
           var template;
           if (step.formId) {
@@ -148,13 +148,13 @@ ngModule.directive('workflowProgress', function($timeout) {
   return {
     restrict: 'E'
   , scope: {
-      steps: '='
-    , workorder: '='
+      workorder: '=workorder'
+    , workflow: '=workflow'
     , portal: '@'
     }
   , link: function (scope, element, attrs) {
       render(scope, element, attrs);
-      scope.$watch('steps', function() {
+      scope.$watch('workflow', function() {
         render(scope, element, attrs);
       });
       scope.$watch('workorder', function() {
