@@ -5,6 +5,8 @@ var config = require('./config');
 var ngModule = angular.module('wfm.workflow', ['wfm.core.mediator', 'ngFeedHenry'])
 var _ = require('lodash');
 
+require('./lib');
+
 ngModule.run(function($q, $timeout, mediator, FHCloud) {
   var promise = FHCloud.get(config.apiPath).then(function(response) {
     return response;
@@ -28,50 +30,19 @@ ngModule.run(function($q, $timeout, mediator, FHCloud) {
   });
 })
 
-ngModule.directive('workflowProgress', function($timeout) {
-  var draw = function(scope, element, attrs) {
-    var div = element[0].querySelector('.progtrckr');
-    if (div) {
-      while (div.firstChild) {
-        angular.element(div.firstChild).remove();
-      }
-      div = angular.element(div);
-    } else {
-      div = angular.element('<ol class="progtrckr" />');
-      element.append(div);
-    }
-    if (scope.step) {
-      var completed = false;
-      scope.steps.forEach(function(_step) {
-        var cssClass;
-        if (_step.code === scope.step.code) {
-          cssClass = 'progtrckr-current';
-          completed = true;
-        } else {
-          cssClass = completed ? 'progtrckr-todo' : 'progtrckr-done'
-        }
-        div.append('<li class="step '+cssClass+'">' + _step.name + '</li>')
-      });
-    }
-  };
-
+ngModule.directive('workflowProgress', function($templateCache, $timeout) {
   return {
     restrict: 'E'
+  , template: $templateCache.get('wfm-template/workflow-progress.tpl.html')
   , scope: {
-      step: '=',
+      stepIndex: '=',
       steps: '='
     }
-  , link: function (scope, element, attrs) {
-      scope.$watch('step', function(step) {
-        draw(scope, element, attrs);
-      });
-    }
-  , controller: function() {
+  , controller: function($scope) {
       var self = this;
-      self.selectWorkorder = function(event, workorder) {
-        mediator.publish('workorder:selected', workorder);
-        event.preventDefault();
-      }
+      self.steps = $scope.steps;
+      self.stepIndex = $scope.stepIndex ? parseInt($scope.stepIndex) : 0;
+      self.step = self.steps[self.stepIndex];
     }
   , controllerAs: 'ctrl'
   };

@@ -1,0 +1,7 @@
+<div class="workflow-steps">
+  <h5 class="md-caption">Step 1</h5>
+  <h3 class="md-headline">{{ctrl.step.name}}</h3>
+  <ul>
+    <li class="md-caption" ng-repeat="step in ctrl.steps" ng-class="{active: $index <= ctrl.stepIndex}">{{$index + 1}}</li>
+  </ul>
+</div><!-- workflow-steps -->
