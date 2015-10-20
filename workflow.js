@@ -54,7 +54,6 @@ ngModule.directive('workflowProgress', function($templateCache, $timeout) {
   , scope: {
       step: '=' // { ..., template: "an html template to use", templatePath: "a template path to load"}
     , workorder: '='
-    , workflow: '='
     }
   , link: function (scope, element, attrs) {
       scope.$watch('step', function(step) {
@@ -94,7 +93,7 @@ ngModule.directive('workflowProgress', function($templateCache, $timeout) {
       var portal = scope.portal === 'true';
       element.children().remove();
       scope.workflow.steps.forEach(function(step, i) {
-        if (i==0 || scope.workorder.steps && scope.workorder.steps[step.code] && scope.workorder.steps[step.code].status === 'complete' ) {
+        if (scope.workorder.steps && scope.workorder.steps[step.code] && scope.workorder.steps[step.code].status === 'complete' ) {
           var template = '';
           if (step.formId) {
             var submission = scope.workorder.steps[step.code].submission;
@@ -128,12 +127,6 @@ ngModule.directive('workflowProgress', function($templateCache, $timeout) {
     }
   , link: function (scope, element, attrs) {
       render(scope, element, attrs);
-      scope.$watch('workflow', function() {
-        render(scope, element, attrs);
-      });
-      scope.$watch('workorder', function() {
-        render(scope, element, attrs);
-      });
     }
   };
 })
