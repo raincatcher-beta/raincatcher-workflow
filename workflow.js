@@ -1,6 +1,5 @@
 'use strict';
 
-var angular = require('angular');
 var config = require('./config');
 var ngModule = angular.module('wfm.workflow', ['wfm.core.mediator', 'ngFeedHenry'])
 var _ = require('lodash');
@@ -42,6 +41,10 @@ ngModule.directive('workflowProgress', function($templateCache, $timeout) {
       var self = this;
       self.steps = $scope.steps;
       self.stepIndex = $scope.stepIndex ? parseInt($scope.stepIndex) : 0;
+      $scope.$watch('stepIndex', function() {
+        console.log('stepIndex changed')
+        self.stepIndex = $scope.stepIndex ? parseInt($scope.stepIndex) : 0;
+      });
       self.step = self.steps[self.stepIndex];
     }
   , controllerAs: 'ctrl'

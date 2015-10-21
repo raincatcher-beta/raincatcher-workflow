@@ -14,7 +14,6 @@
   "author": "Brian Leathem",
   "license": "Copyright (c) 2015 FeedHenry Ltd, All Rights Reserved.",
   "dependencies": {
-    "angular": "^1.4.6",
     "express": "^4.13.3",
     "lodash": "^3.10.1",
     "ng-feedhenry": "^0.2.53"
