@@ -30,6 +30,20 @@ ngModule.run(function($q, $timeout, mediator, FHCloud) {
 })
 
 ngModule.directive('workflowProgress', function($templateCache, $timeout) {
+  function parseStepIndex(ctrl, stepIndex) {
+    ctrl.stepIndex = stepIndex;
+    ctrl.step = ctrl.steps[ctrl.stepIndex];
+    if (stepIndex < 0) {
+      ctrl.title = 'Workorder details';
+      ctrl.name = 'Begin Workflow';
+    } else if (stepIndex < ctrl.steps.length) {
+      ctrl.title = 'Step' + (ctrl.stepIndex + 1);
+      ctrl.name = ctrl.step.name;
+    } else {
+      ctrl.title = 'Workorder details';
+      ctrl.name = 'Workflow Complete';
+    }
+  }
   return {
     restrict: 'E'
   , template: $templateCache.get('wfm-template/workflow-progress.tpl.html')
@@ -40,12 +54,12 @@ ngModule.directive('workflowProgress', function($templateCache, $timeout) {
   , controller: function($scope) {
       var self = this;
       self.steps = $scope.steps;
-      self.stepIndex = $scope.stepIndex ? parseInt($scope.stepIndex) : 0;
+      parseStepIndex(self, $scope.stepIndex ? parseInt($scope.stepIndex) : 0)
+
       $scope.$watch('stepIndex', function() {
         console.log('stepIndex changed')
-        self.stepIndex = $scope.stepIndex ? parseInt($scope.stepIndex) : 0;
+        parseStepIndex(self, $scope.stepIndex ? parseInt($scope.stepIndex) : 0)
       });
-      self.step = self.steps[self.stepIndex];
     }
   , controllerAs: 'ctrl'
   };
