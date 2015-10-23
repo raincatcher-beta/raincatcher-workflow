@@ -104,7 +104,7 @@ ngModule.directive('workflowProgress', function($templateCache, $timeout) {
   };
 })
 
-.directive('workflowStepSummary', function($compile) {
+.directive('workflowResults', function($compile) {
   var render = function(scope, element, attrs) {
     if (scope.workflow.steps && scope.workorder) {
       element.children().remove();
