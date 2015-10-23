@@ -110,6 +110,7 @@ ngModule.directive('workflowProgress', function($templateCache, $timeout) {
       var portal = scope.portal === 'true';
       element.children().remove();
       scope.workflow.steps.forEach(function(step, i) {
+        element.append('<md-divider></md-divider>');
         if (scope.workorder.steps && scope.workorder.steps[step.code] && scope.workorder.steps[step.code].status === 'complete' ) {
           var template = '';
           if (step.formId) {
