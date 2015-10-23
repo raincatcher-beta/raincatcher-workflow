@@ -107,7 +107,6 @@ ngModule.directive('workflowProgress', function($templateCache, $timeout) {
 .directive('workflowStepSummary', function($compile) {
   var render = function(scope, element, attrs) {
     if (scope.workflow.steps && scope.workorder) {
-      var portal = scope.portal === 'true';
       element.children().remove();
       scope.workflow.steps.forEach(function(step, i) {
         element.append('<md-divider></md-divider>');
@@ -116,21 +115,12 @@ ngModule.directive('workflowProgress', function($templateCache, $timeout) {
           if (step.formId) {
             var submission = scope.workorder.steps[step.code].submission;
             if (submission.submissionId || submission._submissionLocalId) {
-              template = portal && false ? '<appform-portal-submission-view submission-id="workorder.steps[\''+step.code+'\'].submission.submissionId" submission-local-id="workorder.steps[\''+step.code+'\'].submission._submissionLocalId"></appform-portal-submission-view>'
-                                         : '<appform-mobile-submission-view submission-id="workorder.steps[\''+step.code+'\'].submission.submissionId" submission-local-id="workorder.steps[\''+step.code+'\'].submission._submissionLocalId"></appform-mobile-submission-view>';
+              template = '<appform-mobile-submission-view submission-id="workorder.steps[\''+step.code+'\'].submission.submissionId" submission-local-id="workorder.steps[\''+step.code+'\'].submission._submissionLocalId"></appform-mobile-submission-view>';
             }
           } else {
-            template = portal && step.templates.portal && step.templates.portal.view
-              ? step.templates.portal.view
-              : step.templates.view;
+            template = step.templates.view;
           };
-          if (portal && i != 0) {
-            var padding = angular.element('<div layout-padding layout-margin class="md-body-1"></div>');
-            padding.append(template);
-            element.append(padding);
-          } else {
-            element.append(template);
-          }
+          element.append(template);
         }
       });
       $compile(element.contents())(scope);
@@ -141,7 +131,6 @@ ngModule.directive('workflowProgress', function($templateCache, $timeout) {
   , scope: {
       workorder: '=workorder'
     , workflow: '=workflow'
-    , portal: '@'
     }
   , link: function (scope, element, attrs) {
       render(scope, element, attrs);
