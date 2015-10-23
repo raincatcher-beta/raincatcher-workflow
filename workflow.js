@@ -80,7 +80,7 @@ ngModule.directive('workflowProgress', function($templateCache, $timeout) {
             mediator.promise('wfm:appform:form:loaded').then(function(form) {
               scope.$apply(function() {
                 scope.form = form;
-                element.html('<appform-mobile form="form"></appform-mobile>');
+                element.html('<appform form="form"></appform>');
                 $compile(element.contents())(scope);
               });
             })
@@ -115,7 +115,7 @@ ngModule.directive('workflowProgress', function($templateCache, $timeout) {
           if (step.formId) {
             var submission = scope.workorder.steps[step.code].submission;
             if (submission.submissionId || submission._submissionLocalId) {
-              template = '<appform-mobile-submission-view submission-id="workorder.steps[\''+step.code+'\'].submission.submissionId" submission-local-id="workorder.steps[\''+step.code+'\'].submission._submissionLocalId"></appform-mobile-submission-view>';
+              template = '<appform-submission submission-id="workorder.steps[\''+step.code+'\'].submission.submissionId" submission-local-id="workorder.steps[\''+step.code+'\'].submission._submissionLocalId"></appform-submission>';
             }
           } else {
             template = step.templates.view;
