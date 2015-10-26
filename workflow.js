@@ -34,14 +34,14 @@ ngModule.directive('workflowProgress', function($templateCache, $timeout) {
     ctrl.stepIndex = stepIndex;
     ctrl.step = ctrl.steps[ctrl.stepIndex];
     if (stepIndex < 0) {
-      ctrl.title = 'Workorder details';
-      ctrl.name = 'Begin Workflow';
+      ctrl.title = 'Workflow';
+      ctrl.name = ctrl.workflow.title;
     } else if (stepIndex < ctrl.steps.length) {
       ctrl.title = 'Step' + (ctrl.stepIndex + 1);
       ctrl.name = ctrl.step.name;
     } else {
-      ctrl.title = 'Workorder details';
-      ctrl.name = 'Workflow Complete';
+      ctrl.title = 'Workflow Complete';
+      ctrl.name = ctrl.workflow.title;
     }
   }
   return {
@@ -49,11 +49,12 @@ ngModule.directive('workflowProgress', function($templateCache, $timeout) {
   , template: $templateCache.get('wfm-template/workflow-progress.tpl.html')
   , scope: {
       stepIndex: '=',
-      steps: '='
+      workflow: '='
     }
   , controller: function($scope) {
       var self = this;
-      self.steps = $scope.steps;
+      self.workflow = $scope.workflow;
+      self.steps = $scope.workflow.steps;
       parseStepIndex(self, $scope.stepIndex ? parseInt($scope.stepIndex) : 0)
 
       $scope.$watch('stepIndex', function() {
