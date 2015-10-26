@@ -1,8 +1,9 @@
 'use strict';
 
 var config = require('./config');
-var ngModule = angular.module('wfm.workflow', ['wfm.core.mediator', 'ngFeedHenry'])
 var _ = require('lodash');
+var ngModule = angular.module('wfm.workflow', ['wfm.core.mediator', 'ngFeedHenry'])
+require('ng-feedhenry');
 
 require('./lib');
 
