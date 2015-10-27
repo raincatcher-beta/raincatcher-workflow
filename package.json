@@ -19,7 +19,7 @@
     "ng-feedhenry": "^0.2.53"
   },
   "devDependencies": {
-    "fh-wfm-mediator": "~0.0.4",
+    "fh-wfm-mediator": ">=0.0.6",
     "fh-wfm-template-build": "~0.0.1"
   }
 }
