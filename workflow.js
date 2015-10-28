@@ -78,14 +78,15 @@ ngModule.directive('workflowProgress', function($templateCache, $timeout) {
       scope.$watch('step', function(step) {
         if (scope.step) {
           if (scope.step.formId) {
-            mediator.publish('wfm:appform:form:load', scope.step.formId);
-            mediator.promise('wfm:appform:form:loaded').then(function(form) {
+            mediator.request('wfm:appform:form:load', scope.step.formId).then(function(form) {
               scope.$apply(function() {
                 scope.form = form;
                 element.html('<appform form="form"></appform>');
                 $compile(element.contents())(scope);
               });
-            })
+            }, function(error) {
+              console.error(error);
+            });
           } else if (scope.step.templatePath) {
             $templateRequest(scope.step.templatePath).then(function(template) {
               element.html(template);
