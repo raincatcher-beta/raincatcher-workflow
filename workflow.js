@@ -25,7 +25,7 @@ ngModule.run(function($q, $timeout, mediator, FHCloud) {
       var workflow = _.find(workflows, function(_workflow) {
         return _workflow.id == id;
       });
-      mediator.publish('workflow:loaded', workflow);
+      mediator.publish('done:workflow:load', workflow);
     });
   });
 })
