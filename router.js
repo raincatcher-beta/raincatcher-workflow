@@ -14,7 +14,7 @@ function initRouter(mediator) {
   });
   router.route('/').get(function(req, res, next) {
     mediator.publish('workflows:load');
-    mediator.once('workflows:loaded', function(workflows) {
+    mediator.once('done:workflows:load', function(workflows) {
       res.json(workflows);
     });
   });

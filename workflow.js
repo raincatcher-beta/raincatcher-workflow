@@ -16,7 +16,7 @@ ngModule.run(function($q, $timeout, mediator, FHCloud) {
 
   mediator.subscribe('workflows:load', function() {
     promise.then(function(workflows) {
-      mediator.publish('workflows:loaded', workflows);
+      mediator.publish('done:workflows:load', workflows);
     });
   });
 
