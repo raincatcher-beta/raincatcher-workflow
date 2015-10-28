@@ -79,11 +79,9 @@ ngModule.directive('workflowProgress', function($templateCache, $timeout) {
         if (scope.step) {
           if (scope.step.formId) {
             mediator.request('wfm:appform:form:load', scope.step.formId).then(function(form) {
-              scope.$apply(function() {
-                scope.form = form;
-                element.html('<appform form="form"></appform>');
-                $compile(element.contents())(scope);
-              });
+              scope.form = form;
+              element.html('<appform form="form"></appform>');
+              $compile(element.contents())(scope);
             }, function(error) {
               console.error(error);
             });
