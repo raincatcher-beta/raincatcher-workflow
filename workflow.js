@@ -34,6 +34,7 @@ ngModule.directive('workflowProgress', function($templateCache, $timeout) {
   function parseStepIndex(ctrl, stepIndex) {
     ctrl.stepIndex = stepIndex;
     ctrl.step = ctrl.steps[ctrl.stepIndex];
+    ctrl.closed = true;
     if (stepIndex < 0) {
       ctrl.title = 'Workflow';
       ctrl.name = ctrl.workflow.title;
