@@ -47,23 +47,34 @@
 */
 
 
+
+
+
 .workflow-progress{
   position: relative;
   overflow: auto;
   height: 180px;
   background-color: #3F51B5;
-  background-image: 
-  linear-gradient(to bottom, #3F51B5 27px, transparent 27px),
-  linear-gradient(to right, rgba(255,255,255,.12) 0, rgba(255,255,255,.12) 4px, transparent 4px);
-     
-  background-position: 0 0, left 26px bottom 27px ;
-  background-repeat: no-repeat;
+  padding: 24px 0;
+  &.close{
+    height: 24px;
+    ol{
+      top: -54px;
+    }
+  }
 
-  
   ol{
+    position: relative;
     list-style: none;
     margin: 0;
-    padding: 24px 0;
+    padding: 0;
+//    padding: 24px 0;
+    background-image: 
+    linear-gradient(to bottom, #3F51B5 27px, transparent 27px),
+    linear-gradient(to right, rgba(255,255,255,.12) 0, rgba(255,255,255,.12) 4px, transparent 4px);
+       
+    background-position: 0 0, left 26px bottom 27px ;
+    background-repeat: no-repeat;
   }
   
   li{
@@ -99,6 +110,7 @@
     }
   }
 }
+
 
 
 .workflow {margin-bottom: 64px; }
