@@ -34,17 +34,6 @@ ngModule.directive('workflowProgress', function($templateCache, $timeout) {
   function parseStepIndex(ctrl, stepIndex) {
     ctrl.stepIndex = stepIndex;
     ctrl.step = ctrl.steps[ctrl.stepIndex];
-    ctrl.closed = true;
-    if (stepIndex < 0) {
-      ctrl.title = 'Workflow';
-      ctrl.name = ctrl.workflow.title;
-    } else if (stepIndex < ctrl.steps.length) {
-      ctrl.title = 'Step' + (ctrl.stepIndex + 1);
-      ctrl.name = ctrl.step.name;
-    } else {
-      ctrl.title = 'Workflow Complete';
-      ctrl.name = ctrl.workflow.title;
-    }
   }
   function scrollToActive(element) {
     element = element[0];
@@ -83,7 +72,11 @@ ngModule.directive('workflowProgress', function($templateCache, $timeout) {
 
       $scope.$watch('stepIndex', function() {
         console.log('stepIndex changed')
-        parseStepIndex(self, $scope.stepIndex ? parseInt($scope.stepIndex) : 0)
+        parseStepIndex(self, $scope.stepIndex ? parseInt($scope.stepIndex) : 0);
+        self.closed = true;
+        $timeout(function() {
+          scrollToActive($element);
+        }, 0);
       });
     }
   , controllerAs: 'ctrl'
