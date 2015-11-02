@@ -1,18 +1,18 @@
+
 .workflow-progress{
   position: relative;
   overflow: auto;
-  height: 180px;
+  height: 135px;
   background-color: #3F51B5;
   background-image: linear-gradient(to top, rgba(0,0,0,.3) 0px, transparent 6px);
   background-blend-mode: multiply;
   padding: 24px 0;
-
   &.close{
     height: 24px;
     overflow: hidden;
-    ol{
-      top: -54px;
-    }
+//    ol{
+//      top: -108px;
+//    }
   }
 
   ol{
@@ -73,6 +73,7 @@
   }
 
 }
+
 
 .workflow {margin-bottom: 64px; }
 
