@@ -46,6 +46,15 @@ ngModule.directive('workflowProgress', function($templateCache, $timeout) {
       ctrl.name = ctrl.workflow.title;
     }
   }
+  function scrollToActive(element) {
+    var active = element.querySelector('li.active');
+    if (!active) {
+      active = element.querySelector('li');
+    };
+    var list = active.offsetParent;
+    var offset = active.offsetTop;
+    angular.element(list).css('top', '-' + offset + 'px');
+  }
   return {
     restrict: 'E'
   , template: $templateCache.get('wfm-template/workflow-progress.tpl.html')
@@ -53,10 +62,18 @@ ngModule.directive('workflowProgress', function($templateCache, $timeout) {
       stepIndex: '=',
       workflow: '='
     }
-  , controller: function($scope) {
+  , link: function (scope, element, attrs) {
+      $timeout(function() {
+        scrollToActive(element[0]);
+      }, 0);
+    }
+  , controller: function($scope, $element) {
       var self = this;
       self.workflow = $scope.workflow;
       self.steps = $scope.workflow.steps;
+      self.scrollToActive = function() {
+        scrollToActive($element[0]);
+      };
       parseStepIndex(self, $scope.stepIndex ? parseInt($scope.stepIndex) : 0)
 
       $scope.$watch('stepIndex', function() {

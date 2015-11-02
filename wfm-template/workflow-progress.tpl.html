@@ -2,27 +2,19 @@
 
 <md-button class="md-icon-button md-warm expand-collapse">
   <md-icon ng-show="ctrl.closed" md-font-set="material-icons" ng-click="ctrl.closed = false">keyboard_arrow_down</md-icon>
-  <md-icon ng-show="!ctrl.closed" md-font-set="material-icons" ng-click="ctrl.closed = true">keyboard_arrow_up</md-icon>
+  <md-icon ng-show="!ctrl.closed" md-font-set="material-icons" ng-click="ctrl.closed = true; ctrl.scrollToActive()">keyboard_arrow_up</md-icon>
 </md-button>
 
-<!-- TODO
-  When its close change the ol top position
-
-  step 1 = style="top:0"
-  step 2 = style="top:-54px"
-  step 2 = style="top:-108px"
-  etc... ad 54px per step
-  
-  Also:
-  
-  Lets add a first step with "Workorder Overview" and Workorder Summury at the end.
-   
--->
-  
 <ol>
+  <li ng-class="{active: '-1' == ctrl.stepIndex, complete: $index < ctrl.stepIndex}">
+    <span class="md-caption"><md-icon md-font-set="material-icons">assignment</md-icon></span>Overview
+  </li>
   <li ng-repeat="step in ctrl.steps" ng-class="{active: $index == ctrl.stepIndex, complete: $index < ctrl.stepIndex}">
-    <span class="md-caption">{{$index + 1}}</span>{{ctrl.name}}
+    <span class="md-caption">{{$index + 1}}</span>{{step.name}}
+  </li>
+  <li ng-class="{active: ctrl.steps.length <= ctrl.stepIndex, complete: ctrl.steps.length <= ctrl.stepIndex}">
+    <span class="md-caption"><md-icon md-font-set="material-icons">assignment_turned_in</md-icon></span>Summary
   </li>
 </ol>
 
-</div><!-- workflow-steps -->
+</div><!-- workflow-progress -->
