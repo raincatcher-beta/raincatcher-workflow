@@ -1,8 +1,8 @@
-<div class="workflow-progress" ng-class="{close: ctrl.closed}">
+<div class="workflow-progress scroll-box" ng-class="{close: ctrl.closed}">
 
 <md-button class="md-icon-button md-warm expand-collapse">
-  <md-icon ng-show="ctrl.closed" md-font-set="material-icons" ng-click="ctrl.closed = false">keyboard_arrow_down</md-icon>
-  <md-icon ng-show="!ctrl.closed" md-font-set="material-icons" ng-click="ctrl.closed = true; ctrl.scrollToActive()">keyboard_arrow_up</md-icon>
+  <md-icon ng-show="ctrl.closed" md-font-set="material-icons" ng-click="ctrl.open()">keyboard_arrow_down</md-icon>
+  <md-icon ng-show="!ctrl.closed" md-font-set="material-icons" ng-click="ctrl.close()">keyboard_arrow_up</md-icon>
 </md-button>
 
 <ol>

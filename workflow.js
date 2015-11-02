@@ -47,13 +47,14 @@ ngModule.directive('workflowProgress', function($templateCache, $timeout) {
     }
   }
   function scrollToActive(element) {
+    element = element[0];
     var active = element.querySelector('li.active');
     if (!active) {
       active = element.querySelector('li');
     };
-    var list = active.offsetParent;
+    var scroller = element.querySelector('.scroll-box');
     var offset = active.offsetTop;
-    angular.element(list).css('top', '-' + offset + 'px');
+    scroller.scrollTop = offset;
   }
   return {
     restrict: 'E'
@@ -64,16 +65,20 @@ ngModule.directive('workflowProgress', function($templateCache, $timeout) {
     }
   , link: function (scope, element, attrs) {
       $timeout(function() {
-        scrollToActive(element[0]);
+        scrollToActive(element);
       }, 0);
     }
   , controller: function($scope, $element) {
       var self = this;
       self.workflow = $scope.workflow;
       self.steps = $scope.workflow.steps;
-      self.scrollToActive = function() {
-        scrollToActive($element[0]);
-      };
+      self.open = function() {
+        self.closed = false;
+      }
+      self.close = function() {
+        scrollToActive($element);
+        self.closed = true;
+      }
       parseStepIndex(self, $scope.stepIndex ? parseInt($scope.stepIndex) : 0)
 
       $scope.$watch('stepIndex', function() {
