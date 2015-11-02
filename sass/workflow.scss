@@ -1,18 +1,19 @@
 
 .workflow-progress{
   position: relative;
-  overflow: auto;
-  height: 135px;
   background-color: #3F51B5;
   background-image: linear-gradient(to top, rgba(0,0,0,.3) 0px, transparent 6px);
   background-blend-mode: multiply;
-  padding: 24px 0;
-  &.close{
+    
+  .scroll-box{
+    padding: 24px 0;
+    max-height: 135px;
+    overflow: auto;
+  }
+
+  &.close .scroll-box{
     height: 24px;
     overflow: hidden;
-//    ol{
-//      top: -108px;
-//    }
   }
 
   ol{
@@ -45,6 +46,13 @@
       color: white;
       z-index: 1;
       position: relative;
+      .material-icons{
+//        background: red;
+        font-size: 18px;
+        line-height: 22px;
+        color: white;
+//        display: block;
+      }
     }
     &:first-child{
       margin-top: 0;
@@ -62,10 +70,10 @@
   }
 
   .expand-collapse{
+    position: absolute;
     right: 10px;
     bottom: 10px;
     z-index: 2;
-    position: absolute;
     md-icon {
       fill: rgba(255,255,255,.7)!important;
       color: rgba(255,255,255,.7)!important;
@@ -73,6 +81,7 @@
   }
 
 }
+
 
 
 .workflow {margin-bottom: 64px; }
