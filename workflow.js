@@ -94,7 +94,7 @@ ngModule.directive('workflowProgress', function($templateCache, $timeout) {
       scope.$watch('step', function(step) {
         if (scope.step) {
           if (scope.step.formId) {
-            mediator.request('wfm:appform:form:load', scope.step.formId).then(function(form) {
+            mediator.request('appform:form:load', scope.step.formId).then(function(form) {
               scope.form = form;
               element.html('<appform form="form"></appform>');
               $compile(element.contents())(scope);
