@@ -127,9 +127,10 @@ ngModule.directive('workflowProgress', function($templateCache, $timeout) {
       element.children().remove();
       scope.workflow.steps.forEach(function(step, i) {
         element.append('<md-divider></md-divider>');
-        if (scope.workorder.steps && scope.workorder.steps[step.code] && scope.workorder.steps[step.code].status === 'complete' ) {
+        if (scope.workorder.results && scope.workorder.results[step.code] && scope.workorder.results[step.code].status === 'complete' ) {
           var template = '';
-          template = '<workorder-submission-result workorder="workorder" result="workorder.steps[\''+step.code+'\']"></workorder-submission-result>';
+          template = '<workorder-submission-result workorder="workorder" result="workorder.results[\''+step.code+'\']"></workorder-submission-result>';
+          console.log(template);
           element.append(template);
         }
       });
