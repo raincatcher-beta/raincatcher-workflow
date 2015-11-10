@@ -132,17 +132,22 @@ ngModule.directive('workflowProgress', function($templateCache, $timeout) {
           if (step.formId) {
             var submission = scope.workorder.steps[step.code].submission;
             var tag, subId;
-            if (submission.submissionId) {
-              tag = 'submission-id';
-              subId = submission.submissionId
-            } else if (submission.submissionLocalIdMap) {
-              tag = 'submission-local-id';
-              subId = submission.submissionLocalIdMap[$fh._getDeviceId()];
+            if (submission._submission) {
+              tag = 'submission';
+              subId = submission._submission
+              template = '<appform-submission submission="workorder.steps[\''+step.code+'\'].submission._submission"></appform-submission>';
+            } else {
+               if (submission.submissionId) {
+                tag = 'submission-id';
+                subId = submission.submissionId
+              } else if (submission.submissionLocalIdMap) {
+                tag = 'submission-local-id';
+                subId = submission.submissionLocalIdMap[$fh._getDeviceId()];
+              };
+              if (subId) {
+                template = '<appform-submission '+tag+'="\''+subId+'\'"></appform-submission>';
+              };
             };
-            if (subId) {
-              template = '<appform-submission '+tag+'="\''+subId+'\'"></appform-submission>';
-              console.log(template)
-            }
           } else {
             template = step.templates.view;
           };
