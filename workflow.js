@@ -129,32 +129,10 @@ ngModule.directive('workflowProgress', function($templateCache, $timeout) {
         element.append('<md-divider></md-divider>');
         if (scope.workorder.steps && scope.workorder.steps[step.code] && scope.workorder.steps[step.code].status === 'complete' ) {
           var template = '';
-          if (step.formId) {
-            var submission = scope.workorder.steps[step.code].submission;
-            var tag, subId;
-            if (submission._submission) {
-              tag = 'submission';
-              subId = submission._submission
-              template = '<appform-submission submission="workorder.steps[\''+step.code+'\'].submission._submission"></appform-submission>';
-            } else {
-               if (submission.submissionId) {
-                tag = 'submission-id';
-                subId = submission.submissionId
-              } else if (submission.submissionLocalIdMap) {
-                tag = 'submission-local-id';
-                subId = submission.submissionLocalIdMap[$fh._getDeviceId()];
-              };
-              if (subId) {
-                template = '<appform-submission '+tag+'="\''+subId+'\'"></appform-submission>';
-              };
-            };
-          } else {
-            template = step.templates.view;
-          };
+          template = '<workorder-submission-result workorder="workorder" result="workorder.steps[\''+step.code+'\']"></workorder-submission-result>';
           element.append(template);
         }
       });
-      console.log(element.contents())
       $compile(element.contents())(scope);
     };
   }
