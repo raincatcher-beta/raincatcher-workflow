@@ -5,7 +5,7 @@ var _ = require('lodash');
 var ngModule = angular.module('wfm.workflow', ['wfm.core.mediator', 'ngFeedHenry'])
 require('ng-feedhenry');
 
-require('./lib');
+require('./dist');
 
 ngModule.run(function($q, $timeout, mediator, FHCloud) {
   var promise = FHCloud.get(config.apiPath).then(function(response) {

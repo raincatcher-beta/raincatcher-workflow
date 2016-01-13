@@ -20,6 +20,6 @@
   },
   "devDependencies": {
     "fh-wfm-mediator": ">=0.0.6",
-    "fh-wfm-template-build": "~0.0.1"
+    "fh-wfm-template-build": ">=0.0.3"
   }
 }
