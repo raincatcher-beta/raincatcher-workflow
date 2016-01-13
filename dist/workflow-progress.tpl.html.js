@@ -1,8 +1,8 @@
 var ngModule;
 try {
-  ngModule = angular.module('wfm.workflow');
+  ngModule = angular.module('wfm.workflow.directives');
 } catch (e) {
-  ngModule = angular.module('wfm.workflow', []);
+  ngModule = angular.module('wfm.workflow.directives', []);
 }
 
 ngModule.run(['$templateCache', function ($templateCache) {
