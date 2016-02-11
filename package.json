@@ -1,6 +1,6 @@
 {
   "name": "fh-wfm-workflow",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "A workflow module for WFM",
   "main": "workflow.js",
   "scripts": {
