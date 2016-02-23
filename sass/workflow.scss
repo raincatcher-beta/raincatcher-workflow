@@ -9,7 +9,7 @@
   background-color: #3F51B5;
   background-image: linear-gradient(to top, rgba(0,0,0,.3) 0px, transparent 6px);
   background-blend-mode: multiply;
-    
+
   .scroll-box{
     padding: 24px 0;
     max-height: 135px;
@@ -70,6 +70,12 @@
       color: white;
       span{
         background: #46b3e7;
+      }
+    }
+    &.complete{
+      color: white;
+      span{
+        background: green;
       }
     }
   }

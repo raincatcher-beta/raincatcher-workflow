@@ -1,8 +1,3 @@
-/**
-* CONFIDENTIAL
-* Copyright 2016 Red Hat, Inc. and/or its affiliates.
-* This is unpublished proprietary source code of Red Hat.
-**/
 var ngModule;
 try {
   ngModule = angular.module('wfm.workflow.directives');
@@ -12,6 +7,11 @@ try {
 
 ngModule.run(['$templateCache', function ($templateCache) {
   $templateCache.put('wfm-template/workflow-progress.tpl.html',
+    '<!--\n' +
+    ' CONFIDENTIAL\n' +
+    ' Copyright 2016 Red Hat, Inc. and/or its affiliates.\n' +
+    ' This is unpublished proprietary source code of Red Hat.\n' +
+    '-->\n' +
     '<div class="workflow-progress" ng-class="{close: ctrl.closed}">\n' +
     '\n' +
     '<md-button class="md-icon-button md-warm expand-collapse">\n' +
@@ -21,7 +21,7 @@ ngModule.run(['$templateCache', function ($templateCache) {
     '\n' +
     '<div class="scroll-box">\n' +
     '  <ol>\n' +
-    '    <li ng-class="{active: \'-1\' == ctrl.stepIndex, complete: $index < ctrl.stepIndex}">\n' +
+    '    <li ng-class="{active: \'-1\' == ctrl.stepIndex, complete: -1 < ctrl.stepIndex}">\n' +
     '      <span class="md-caption"><md-icon md-font-set="material-icons">visibility</md-icon></span>Overview\n' +
     '    </li>\n' +
     '    <li ng-repeat="step in ctrl.steps" ng-class="{active: $index == ctrl.stepIndex, complete: $index < ctrl.stepIndex}">\n' +
