@@ -11,15 +11,9 @@ var express = require('express')
 
 function initRouter(mediator) {
   var router = express.Router();
-  router.route('/steps').get(function(req, res, next) {
-    mediator.publish('workflow:steps:load');
-    mediator.once('workflow:steps:loaded', function(steps) {
-      res.json(steps);
-    });
-  });
   router.route('/').get(function(req, res, next) {
-    mediator.publish('workflows:load');
-    mediator.once('done:workflows:load', function(workflows) {
+    mediator.publish('workflow:list:load');
+    mediator.once('done:workflow:list:load', function(workflows) {
       res.json(workflows);
     });
   });
