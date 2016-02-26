@@ -3,6 +3,7 @@
 * Copyright 2016 Red Hat, Inc. and/or its affiliates.
 * This is unpublished proprietary source code of Red Hat.
 **/
+$success: #388E3C;
 
 .workflow-progress{
   position: relative;
@@ -52,11 +53,9 @@
       z-index: 1;
       position: relative;
       .material-icons{
-//        background: red;
         font-size: 18px;
         line-height: 22px;
         color: white;
-//        display: block;
       }
     }
     &:first-child{
@@ -75,7 +74,7 @@
     &.complete{
       color: white;
       span{
-        background: green;
+        background: $success;
       }
     }
   }
@@ -92,8 +91,6 @@
   }
 
 }
-
-
 
 .workflow {margin-bottom: 64px; }
 
