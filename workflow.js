@@ -36,5 +36,36 @@ ngModule.factory('workflowManager', function(FHCloud) {
     })
   };
 
+  //fast-forward to the first incomplete step
+  workflowManager.nextStepIndex = function(workorder, workflow, results) {
+    var stepIndex = -1;
+    var steps = workflow.steps;
+    for (var i=0; i < steps.length; i++) {
+      var step = steps[i];
+      var result = results[step.code];
+      if (result && result.status === 'complete') {
+        stepIndex = i;
+      } else {
+        break;
+      };
+    };
+    return stepIndex;
+  }
+
+  workflowManager.checkStatus = function(workorder, workflow, results) {
+    var status;
+    var stepIndex = this.nextStepIndex(workorder, workflow, results);
+    if (stepIndex >= workflow.steps.length - 1) {
+      status = 'Complete';
+    } else if (!workorder.assignee) {
+      status = 'Unassigned';
+    } else if (stepIndex < 0) {
+      status = 'New';
+    } else {
+      status = 'In Progress';
+    }
+    return status;
+  }
+
   return workflowManager;
 });
