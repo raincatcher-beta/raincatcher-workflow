@@ -36,31 +36,41 @@ ngModule.factory('workflowManager', function(FHCloud) {
     })
   };
 
-  //fast-forward to the first incomplete step
-  workflowManager.nextStepIndex = function(steps, result) {
+  workflowManager.stepReview = function(steps, result) {
     var stepIndex = -1;
+    var complete = true;
     if (result.stepResults && result.stepResults.length !== 0) {
       for (var i=0; i < steps.length; i++) {
         var step = steps[i];
         var stepResult = result.stepResults[step.code];
-        if (stepResult && stepResult.status === 'complete') {
+        if (stepResult && (stepResult.status === 'complete' || stepResult.status === 'pending')) {
           stepIndex = i;
+          if (stepResult.status === 'pending') {
+            complete = false;
+          }
         } else {
           break;
         };
       };
     }
-    return stepIndex;
+    return {
+      nextStepIndex: stepIndex,
+      complete: complete
+    };
+  }
+
+  workflowManager.nextStepIndex = function(steps, result) {
+    return this.stepReview(steps, result).nextStepIndex;
   }
 
   workflowManager.checkStatus = function(workorder, workflow, result) {
     var status;
-    var stepIndex = this.nextStepIndex(workflow.steps, result);
-    if (stepIndex >= workflow.steps.length - 1) {
+    var stepReview = this.stepReview(workflow.steps, result);
+    if (stepReview.nextStepIndex >= workflow.steps.length - 1 && stepReview.complete) {
       status = 'Complete';
     } else if (!workorder.assignee) {
       status = 'Unassigned';
-    } else if (stepIndex < 0) {
+    } else if (stepReview.nextStepIndex < 0) {
       status = 'New';
     } else {
       status = 'In Progress';
