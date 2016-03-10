@@ -38,8 +38,9 @@ ngModule.factory('workflowManager', function(FHCloud) {
 
   workflowManager.stepReview = function(steps, result) {
     var stepIndex = -1;
-    var complete = true;
-    if (result.stepResults && result.stepResults.length !== 0) {
+    var complete;
+    if (result && result.stepResults && result.stepResults.length !== 0) {
+      complete = true;
       for (var i=0; i < steps.length; i++) {
         var step = steps[i];
         var stepResult = result.stepResults[step.code];
@@ -55,7 +56,7 @@ ngModule.factory('workflowManager', function(FHCloud) {
     }
     return {
       nextStepIndex: stepIndex,
-      complete: complete
+      complete: complete // false is any steps are "pending"
     };
   }
 
