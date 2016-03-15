@@ -15,6 +15,7 @@
   "license": "SEE LICENSE IN LICENSE.txt",
   "dependencies": {
     "express": "^4.13.3",
+    "fh-wfm-template-build": "0.0.4",
     "lodash": "^3.10.1",
     "ng-feedhenry": "^0.2.53"
   },
