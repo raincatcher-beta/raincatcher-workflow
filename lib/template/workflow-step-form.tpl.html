@@ -1,0 +1,34 @@
+<form name="workflowStepForm" ng-submit="ctrl.done(workflowStepForm.$valid)" novalidate layout-padding layout-margin>
+
+<div>
+  <md-input-container class="md-block">
+    <label>Code</label>
+    <input type="text" id="code" name="code" ng-model="ctrl.model.step.code" required>
+    <div ng-messages="workflow.model.step.$error" ng-if="ctrl.submitted || workflowForm.title.$dirty">
+      <div ng-message="required">A code is required.</div>
+    </div>
+  </md-input-container>
+  <md-input-container class="md-block">
+    <label>Name</label>
+    <input type="text" id="name" name="name" ng-model="ctrl.model.step.name" required>
+    <div ng-messages="workflow.name.$error" ng-if="ctrl.submitted || workflowForm.name.$dirty">
+      <div ng-message="required">A name is required.</div>
+    </div>
+  </md-input-container>
+  <md-input-container class="md-block">
+    <label>FormID</label>
+    <input type="text" id="formId" name="formId" ng-model="ctrl.model.step.formId">
+  </md-input-container>
+  <md-input-container class="md-block">
+    <label>form template</label>
+    <input type="text" id="form" name="form" ng-model="ctrl.model.step.templates.form">
+  </md-input-container>
+  <md-input-container class="md-block">
+    <label>view template</label>
+    <input type="text" id="view" name="view" ng-model="ctrl.model.step.templates.view">
+  </md-input-container>
+
+</div>
+
+  <md-button type="submit" class="md-raised md-primary">{{ctrl.model.isNew ? 'Add' : 'Update'}} step</md-button>
+</form>

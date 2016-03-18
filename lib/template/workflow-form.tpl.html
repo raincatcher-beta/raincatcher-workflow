@@ -1,0 +1,25 @@
+<!--
+ CONFIDENTIAL
+ Copyright 2016 Red Hat, Inc. and/or its affiliates.
+ This is unpublished proprietary source code of Red Hat.
+-->
+<md-toolbar class="content-toolbar md-primary">
+  <div class="md-toolbar-tools">
+    <h3>New workflow</h3>
+  </div>
+</md-toolbar>
+
+<form name="workflowForm" ng-submit="ctrl.done(workflowForm.$valid)" novalidate layout-padding layout-margin>
+
+<div>
+  <md-input-container class="md-block">
+    <label>Title</label>
+    <input type="text" id="title" name="title" ng-model="ctrl.model.title" required>
+    <div ng-messages="workflow.title.$error" ng-if="ctrl.submitted || workflowForm.title.$dirty">
+      <div ng-message="required">A title is required.</div>
+    </div>
+  </md-input-container>
+</div>
+
+  <md-button type="submit" class="md-raised md-primary">{{ctrl.model.id ? 'Update' : 'Create'}} Workflow</md-button>
+</form>
