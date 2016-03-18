@@ -17,7 +17,8 @@
     "express": "^4.13.3",
     "fh-wfm-template-build": "0.0.4",
     "lodash": "^3.10.1",
-    "ng-feedhenry": "^0.2.53"
+    "ng-feedhenry": "^0.2.53",
+    "fh-wfm-sync": ">=0.0.2"
   },
   "devDependencies": {
     "fh-wfm-mediator": ">=0.0.6",
