@@ -7,6 +7,21 @@ try {
 
 ngModule.run(['$templateCache', function ($templateCache) {
   $templateCache.put('wfm-template/workflow-step-form.tpl.html',
+    '<!--\n' +
+    ' CONFIDENTIAL\n' +
+    ' Copyright 2016 Red Hat, Inc. and/or its affiliates.\n' +
+    ' This is unpublished proprietary source code of Red Hat.\n' +
+    '-->\n' +
+    '<md-toolbar class="content-toolbar md-primary" ng-show="step">\n' +
+    '  <div class="md-toolbar-tools">\n' +
+    '    <h3>Update step</h3>\n' +
+    '    <span flex></span>\n' +
+    '    <md-button class="md-icon-button" aria-label="Close" ng-click="ctrl.selectWorkflow($event, workflow)">\n' +
+    '      <md-icon md-font-set="material-icons">close</md-icon>\n' +
+    '    </md-button>\n' +
+    '  </div>\n' +
+    '</md-toolbar>\n' +
+    '\n' +
     '<form name="workflowStepForm" ng-submit="ctrl.done(workflowStepForm.$valid)" novalidate layout-padding layout-margin>\n' +
     '\n' +
     '<div>\n' +

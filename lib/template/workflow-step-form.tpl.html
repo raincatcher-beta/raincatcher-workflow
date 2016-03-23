@@ -1,3 +1,18 @@
+<!--
+ CONFIDENTIAL
+ Copyright 2016 Red Hat, Inc. and/or its affiliates.
+ This is unpublished proprietary source code of Red Hat.
+-->
+<md-toolbar class="content-toolbar md-primary" ng-show="step">
+  <div class="md-toolbar-tools">
+    <h3>Update step</h3>
+    <span flex></span>
+    <md-button class="md-icon-button" aria-label="Close" ng-click="ctrl.selectWorkflow($event, workflow)">
+      <md-icon md-font-set="material-icons">close</md-icon>
+    </md-button>
+  </div>
+</md-toolbar>
+
 <form name="workflowStepForm" ng-submit="ctrl.done(workflowStepForm.$valid)" novalidate layout-padding layout-margin>
 
 <div>
