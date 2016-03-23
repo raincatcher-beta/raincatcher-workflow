@@ -13,6 +13,7 @@
   </div>
 </md-toolbar>
 
+<div class="wfm-maincol-scroll">
 <form name="workflowForm" ng-submit="ctrl.done(workflowForm.$valid)" novalidate layout-padding layout-margin>
 
 <div>
@@ -27,3 +28,4 @@
 
   <md-button type="submit" class="md-raised md-primary">{{ctrl.model.id ? 'Update' : 'Create'}} Workflow</md-button>
 </form>
+</div>
