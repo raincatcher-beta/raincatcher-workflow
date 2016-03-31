@@ -2,7 +2,7 @@
   "name": "fh-wfm-workflow",
   "version": "0.0.13",
   "description": "A workflow module for WFM",
-  "main": "workflow.js",
+  "main": "lib/angular/workflow-ng.js",
   "scripts": {
     "build": "wfm-template-build -m 'wfm.workflow.directives'",
     "watch": "wfm-template-build -w -m 'wfm.workflow.directives'"
@@ -15,13 +15,12 @@
   "license": "SEE LICENSE IN LICENSE.txt",
   "dependencies": {
     "express": "^4.13.3",
-    "fh-wfm-template-build": "0.0.4",
     "lodash": "^3.10.1",
     "ng-feedhenry": "^0.2.53",
     "fh-wfm-sync": ">=0.0.2"
   },
   "devDependencies": {
     "fh-wfm-mediator": ">=0.0.6",
-    "fh-wfm-template-build": ">=0.0.3"
+    "fh-wfm-template-build": "0.0.5"
   }
 }
