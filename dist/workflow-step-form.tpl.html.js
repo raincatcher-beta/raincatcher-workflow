@@ -41,7 +41,9 @@ ngModule.run(['$templateCache', function ($templateCache) {
     '  </md-input-container>\n' +
     '  <md-input-container class="md-block">\n' +
     '    <label>FormID</label>\n' +
-    '    <input type="text" id="formId" name="formId" ng-model="ctrl.model.step.formId">\n' +
+    '    <md-select ng-model="ctrl.model.step.formId" name="formId" id="formId">\n' +
+    '       <md-option ng-repeat="form in ctrl.forms" value="{{form._id}}">{{form._id}} ({{form.name}})</md-option>\n' +
+    '     </md-select>\n' +
     '  </md-input-container>\n' +
     '  <md-input-container class="md-block">\n' +
     '    <label>form template</label>\n' +

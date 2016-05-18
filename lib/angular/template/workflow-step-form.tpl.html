@@ -32,7 +32,9 @@
   </md-input-container>
   <md-input-container class="md-block">
     <label>FormID</label>
-    <input type="text" id="formId" name="formId" ng-model="ctrl.model.step.formId">
+    <md-select ng-model="ctrl.model.step.formId" name="formId" id="formId">
+       <md-option ng-repeat="form in ctrl.forms" value="{{form._id}}">{{form._id}} ({{form.name}})</md-option>
+     </md-select>
   </md-input-container>
   <md-input-container class="md-block">
     <label>form template</label>
