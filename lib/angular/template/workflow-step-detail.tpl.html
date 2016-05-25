@@ -1,45 +1,36 @@
-<h2 class="md-title">{{step.name}}</h2>
+<h2 class="md-title">Step: {{step.name}}</h2>
 <md-list>
   <md-list-item class="md-2-line" >
     <md-icon md-font-set="material-icons">label</md-icon>
     <div class="md-list-item-text">
       <h3>{{step.code}}</h3>
-      <p>Code</p>
+      <p>Step code</p>
     </div>
   </md-list-item>
   <md-divider></md-divider>
   <md-divider></md-divider>
-  <div ng-show="step.formId">
-    <md-list-item class="md-2-line">
-      <md-icon md-font-set="material-icons">label</md-icon>
-      <div class="md-list-item-text">
-        <h3>{{step.formId}}</h3>
-        <p>FormId</p>
-      </div>
-    </md-list-item>
-    <md-divider></md-divider>
-  </div>
-</md-list>
-<div ng-show="step.templates">
-  <div ng-show="step.templates.view">
-    <md-list-item class="md-2-line">
-      <md-icon md-font-set="material-icons">label</md-icon>
-      <div class="md-list-item-text">
-        <h3>{{step.templates.view}}</h3>
-        <p>Template view</p>
-      </div>
-    </md-list-item>
-    <md-divider></md-divider>
-  </div>
-  <div ng-show="step.templates.form">
-    <md-list-item class="md-2-line">
-      <md-icon md-font-set="material-icons">label</md-icon>
-      <div class="md-list-item-text">
-        <h3>{{step.templates.form}}</h3>
-        <p>Template form</p>
-      </div>
-    </md-list-item>
-    <md-divider></md-divider>
-</div>
-</div>
+  <md-list-item class="md-2-line" ng-show="step.formId">
+    <md-icon md-font-set="material-icons">label</md-icon>
+    <div class="md-list-item-text">
+      <h3>{{step.formId}}</h3>
+      <p>FormId</p>
+    </div>
+  </md-list-item>
+  <md-divider></md-divider>
+  <md-list-item class="md-2-line" ng-show="step.templates && step.templates.view">
+    <md-icon md-font-set="material-icons">label</md-icon>
+    <div class="md-list-item-text">
+      <h3>{{step.templates.view}}</h3>
+      <p>View template</p>
+    </div>
+  </md-list-item>
+  <md-divider></md-divider>
+  <md-list-item class="md-2-line" ng-show="step.templates.form">
+    <md-icon md-font-set="material-icons">label</md-icon>
+    <div class="md-list-item-text">
+      <h3>{{step.templates.form}}</h3>
+      <p>Form template</p>
+    </div>
+  </md-list-item>
+  <md-divider></md-divider>
 </md-list>
