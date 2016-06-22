@@ -7,11 +7,6 @@ try {
 
 ngModule.run(['$templateCache', function ($templateCache) {
   $templateCache.put('wfm-template/workflow-progress.tpl.html',
-    '<!--\n' +
-    ' CONFIDENTIAL\n' +
-    ' Copyright 2016 Red Hat, Inc. and/or its affiliates.\n' +
-    ' This is unpublished proprietary source code of Red Hat.\n' +
-    '-->\n' +
     '<div class="workflow-progress" ng-class="{close: ctrl.closed}">\n' +
     '\n' +
     '<md-button class="md-icon-button md-warm expand-collapse">\n' +
