@@ -18,7 +18,7 @@
     "express": "4.14.0",
     "lodash": "4.7.0",
     "ng-feedhenry": "0.3.0",
-    "fh-wfm-sync": "0.0.14"
+    "fh-wfm-sync": "0.0.15"
   },
   "devDependencies": {
     "fh-wfm-mediator": "0.0.15",
