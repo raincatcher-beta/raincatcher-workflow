@@ -22,7 +22,8 @@
     "express": "4.14.0",
     "lodash": "4.7.0",
     "ng-feedhenry": "0.3.0",
-    "fh-wfm-sync": "0.0.16"
+    "fh-wfm-sync": "0.0.16",
+    "shortid": "^2.2.6"
   },
   "devDependencies": {
     "fh-wfm-mediator": "0.0.15",
