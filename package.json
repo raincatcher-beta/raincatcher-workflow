@@ -3,6 +3,10 @@
   "version": "0.0.26",
   "description": "A workflow module for WFM",
   "main": "lib/angular/workflow-ng.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/feedhenry-raincatcher/raincatcher-workflow.git"
+  },
   "scripts": {
     "build": "wfm-template-build -m 'wfm.workflow.directives'",
     "watch": "wfm-template-build -w -m 'wfm.workflow.directives'",
