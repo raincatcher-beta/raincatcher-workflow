@@ -29,6 +29,10 @@
     "fh-wfm-mediator": "0.0.15",
     "fh-wfm-template-build": "0.0.9",
     "grunt": "^1.0.1",
-    "grunt-eslint": "^18.0.0"
+    "grunt-eslint": "^18.0.0",
+    "grunt-mocha-test": "^0.13.2",
+    "proxyquire": "^1.7.10",
+    "sinon": "^1.17.7",
+    "sinon-as-promised": "^4.0.2"
   }
 }
