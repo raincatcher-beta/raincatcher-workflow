@@ -19,10 +19,10 @@
     "lodash": "4.7.0",
     "ng-feedhenry": "0.3.0",
     "fh-wfm-sync": "0.0.16",
+    "fh-wfm-mediator": "0.1.0-rc2",
     "shortid": "^2.2.6"
   },
   "devDependencies": {
-    "fh-wfm-mediator": "0.0.15",
     "fh-wfm-template-build": "0.0.9",
     "grunt": "^1.0.1",
     "grunt-eslint": "^18.0.0",
