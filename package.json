@@ -20,20 +20,23 @@
   "license": "MIT",
   "dependencies": {
     "express": "4.14.0",
-    "fh-wfm-mediator": "0.1.0",
-    "fh-wfm-sync": "0.0.16",
     "lodash": "4.7.0",
     "ng-feedhenry": "0.3.0",
-    "shortid": "^2.2.6"
+    "shortid": "^2.2.6",
+    "string-template": "^1.0.0",
+    "q": "1.4.1",
+    "fh-wfm-mediator": "0.2.0-0"
   },
   "devDependencies": {
-    "chai": "^3.5.0",
     "fh-wfm-template-build": "0.0.9",
     "grunt": "^1.0.1",
     "grunt-eslint": "^18.0.0",
-    "grunt-mocha-test": "^0.13.2",
-    "proxyquire": "^1.7.10",
-    "sinon": "^1.17.7",
-    "sinon-as-promised": "^4.0.2"
+    "grunt-mocha-test": "0.13.2",
+    "load-grunt-tasks": "3.5.2",
+    "mocha": "3.2.0",
+    "sinon": "1.17.6",
+    "sinon-as-promised": "4.0.2",
+    "chai": "^3.5.0",
+    "proxyquire": "^1.7.10"
   }
 }
