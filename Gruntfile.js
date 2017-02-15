@@ -1,21 +1,23 @@
 module.exports = function(grunt) {
   'use strict';
+
+  require('load-grunt-tasks')(grunt);
   grunt.initConfig({
     eslint: {
       src: ["lib/**/*.js"]
     },
     mochaTest: {
       test: {
+        src: ['lib/**/*-spec.js'],
         options: {
+          reporter: 'Spec',
+          logErrors: true,
+          timeout: 10000,
           run: true
-        },
-        src: ['lib/**/*spec.js']
+        }
       }
     }
   });
-  grunt.loadNpmTasks("grunt-eslint");
-  grunt.loadNpmTasks('grunt-mocha-test');
-  grunt.registerTask('mocha', ['mochaTest']);
-  grunt.registerTask('unit',['eslint', 'mocha']);
-  grunt.registerTask('default', ['unit']);
+  grunt.registerTask('test', ['eslint', 'mochaTest']);
+  grunt.registerTask('default', ['test']);
 };
