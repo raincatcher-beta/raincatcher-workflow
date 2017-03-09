@@ -2,15 +2,9 @@
   "name": "fh-wfm-workflow",
   "version": "0.1.2",
   "description": "A workflow module for WFM",
-  "main": "lib/angular/workflow-ng.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/feedhenry-raincatcher/raincatcher-workflow.git"
-  },
-  "scripts": {
-    "build": "wfm-template-build -m 'wfm.workflow.directives'",
-    "watch": "wfm-template-build -w -m 'wfm.workflow.directives'",
-    "test": "grunt"
   },
   "keywords": [
     "wfm",
@@ -22,15 +16,13 @@
     "express": "4.14.0",
     "lodash": "4.7.0",
     "ng-feedhenry": "0.3.0",
-    "shortid": "2.2.6",
-    "string-template": "1.0.0",
     "q": "1.4.1",
+    "shortid": "^2.2.6",
     "fh-wfm-mediator": "0.3.1"
   },
   "devDependencies": {
-    "fh-wfm-template-build": "0.2.1",
-    "grunt": "1.0.1",
-    "grunt-eslint": "18.0.0",
+    "grunt": "^1.0.1",
+    "grunt-eslint": "^18.0.0",
     "grunt-mocha-test": "0.13.2",
     "load-grunt-tasks": "3.5.2",
     "mocha": "3.2.0",
