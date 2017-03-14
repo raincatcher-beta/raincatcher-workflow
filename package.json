@@ -10,6 +10,9 @@
     "wfm",
     "workflow"
   ],
+  "scripts": {
+    "test": "grunt test"
+  },
   "author": "Brian Leathem",
   "license": "MIT",
   "dependencies": {
