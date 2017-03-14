@@ -3,55 +3,8 @@
 This module contains a workflow model representation and its related services :
 - Backend services
 - Frontend services
-- Frontend UI templates
 
 ## Client-side usage
-
-### Setup
-This module is packaged in a CommonJS format, exporting the name of the Angular namespace.  The module can be included in an angular.js as follows:
-
-```javascript
-angular.module('app', [
-, require('fh-wfm-workflow')
-...
-])
-```
-
-### Integration
-
-#### Angular controller
-A sync manager must first be initialized using the `workflowSync.createManager()`.  This can be placed, for instance, in the `resolve` config of a `ui-router` controlled application.
-
-```javascript
-resolve: {
-  workflowManager: function(workflowSync) {
-    return workflowSync.createManager();
-  }
-}
-```
-For a more complete example, please check the [demo portal app](https://github.com/feedhenry-staff/wfm-portal/blob/master/src/app/main.js).
-
-
-#### `workflowSync` API
-These workflowSync API methods all return Promises:
-
-| workflowSync method | Description |
-| -------------------- | ----------- |
-| `workflowSync.manager.list` | list all workflows |
-| `workflowSync.manager.create(workflow)` | create a workflow |
-| `workflowSync.manager.read(workflowId)` | read a workflow |
-| `workflowSync.manager.update(workflow)` | update a workflow |
-
-### workflow directives
-
-| Name | Attributes |
-| ---- | ----------- |
-| workflow-progress | stepIndex, workflow |
-| workflow-step | step, workflow |
-| workflow-result | workflow, result |
-| workflow-form | value |
-| workflow-step-form | workflow, step, forms |
-| workflow-step-detail | step |
 
 ### Topic Subscriptions
 
