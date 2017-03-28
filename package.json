@@ -1,6 +1,6 @@
 {
   "name": "fh-wfm-workflow",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A workflow module for WFM",
   "repository": {
     "type": "git",
@@ -16,7 +16,7 @@
   "author": "Brian Leathem",
   "license": "MIT",
   "dependencies": {
-    "express": "4.14.0",
+    "express": "4.15.2",
     "lodash": "4.7.0",
     "ng-feedhenry": "0.3.0",
     "q": "1.4.1",
