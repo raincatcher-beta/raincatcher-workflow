@@ -2,9 +2,9 @@ var mediator = require("fh-wfm-mediator/lib/mediator");
 var chai = require('chai');
 require('sinon-as-promised');
 var _ = require('lodash');
-var CONSTANTS = require('../../constants');
-var WorkflowClient = require('../workflow-client');
-var fixtures = require('../../../test/fixtures');
+var CONSTANTS = require('../lib/constants');
+var WorkflowClient = require('../lib/client/workflow-client/index');
+var fixtures = require('../fixtures');
 
 var expect = chai.expect;
 
@@ -96,7 +96,7 @@ describe("Getting A Workflow Summary For A Single Workorder", function() {
 
   beforeEach(function() {
     this.subscribers = {};
-    workflowStepSubscribers.on(CONSTANTS.STEP_TOPICS.SUMMARY, require('./summary')(workflowStepSubscribers, workflowClient));
+    workflowStepSubscribers.on(CONSTANTS.STEP_TOPICS.SUMMARY, require('./../lib/client/mediator-subscribers/summary')(workflowStepSubscribers, workflowClient));
   });
 
   afterEach(function() {

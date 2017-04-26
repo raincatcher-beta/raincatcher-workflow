@@ -19,7 +19,7 @@ module.exports = function(grunt) {
     },
     mocha_istanbul:{
       coverage: {
-        src: 'lib/**/*.js',
+        src: 'test',
         options:{
           mask: '*-spec.js'
         }
