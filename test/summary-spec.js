@@ -2,9 +2,9 @@ var mediator = require("fh-wfm-mediator/lib/mediator");
 var chai = require('chai');
 require('sinon-as-promised');
 var _ = require('lodash');
-var CONSTANTS = require('../../constants');
-var WorkflowClient = require('../workflow-client');
-var fixtures = require('../../../test/fixtures');
+var CONSTANTS = require('../lib/constants');
+var WorkflowClient = require('../lib/client/workflow-client/index');
+var fixtures = require('../fixtures');
 
 var expect = chai.expect;
 
@@ -12,8 +12,8 @@ var MediatorTopicUtility = require('fh-wfm-mediator/lib/topics');
 
 var donePrefix = "done:";
 
-var beginWorkflowTopic = "wfm:workflows:step:begin";
-var beginWorkflowDoneTopic = donePrefix + beginWorkflowTopic;
+var workflowSummaryTopic = "wfm:workflows:step:summary";
+var workflowSummaryDoneTopic = donePrefix + workflowSummaryTopic;
 
 var listResultsTopic = "wfm:results:list";
 var listResultsDoneTopic = donePrefix + listResultsTopic;
@@ -32,7 +32,7 @@ var workflowStepSubscribers = new MediatorTopicUtility(mediator);
 workflowStepSubscribers.prefix(CONSTANTS.WORKFLOW_PREFIX).entity(CONSTANTS.STEPS_ENTITY_NAME);
 
 
-describe("Beginning A Workflow For A Single Workorder", function() {
+describe("Getting A Workflow Summary For A Single Workorder", function() {
 
   var mockWorkflow = fixtures.mockWorkflow();
 
@@ -96,7 +96,7 @@ describe("Beginning A Workflow For A Single Workorder", function() {
 
   beforeEach(function() {
     this.subscribers = {};
-    workflowStepSubscribers.on(CONSTANTS.STEP_TOPICS.BEGIN, require('./begin')(workflowStepSubscribers, workflowClient));
+    workflowStepSubscribers.on(CONSTANTS.STEP_TOPICS.SUMMARY, require('./../lib/client/mediator-subscribers/summary')(workflowStepSubscribers, workflowClient));
   });
 
   afterEach(function() {
@@ -107,35 +107,17 @@ describe("Beginning A Workflow For A Single Workorder", function() {
     workflowStepSubscribers.unsubscribeAll();
   });
 
-  it("should create a result if no result exists", function() {
+  it("should return a summary of the current workorder workflow", function() {
 
-    _.bind(createSubscribers, this)(false);
-
-    var beginDonePromise = mediator.promise(beginWorkflowDoneTopic);
-
-    mediator.publish(beginWorkflowTopic, {
-      workorderId: mockWorkorder.id
-    });
-
-    return beginDonePromise.then(function(stepSummary) {
-      expect(stepSummary.workflow).to.deep.equal(mockWorkflow);
-      expect(stepSummary.workorder).to.deep.equal(mockWorkorder);
-      expect(stepSummary.nextStepIndex).to.equal(0);
-      expect(stepSummary.step).to.deep.equal(mockWorkflow.steps[0]);
-      expect(stepSummary.result).to.deep.equal(newResult);
-    });
-  });
-
-  it("should not create a result if one already exists", function() {
     _.bind(createSubscribers, this)(true);
 
-    var beginDonePromise = mediator.promise(beginWorkflowDoneTopic);
+    var summaryDonePromise = mediator.promise(workflowSummaryDoneTopic);
 
-    mediator.publish(beginWorkflowTopic, {
+    mediator.publish(workflowSummaryTopic, {
       workorderId: mockWorkorder.id
     });
 
-    return beginDonePromise.then(function(stepSummary) {
+    return summaryDonePromise.then(function(stepSummary) {
       expect(stepSummary.workflow).to.deep.equal(mockWorkflow);
       expect(stepSummary.workorder).to.deep.equal(mockWorkorder);
       expect(stepSummary.nextStepIndex).to.equal(2);

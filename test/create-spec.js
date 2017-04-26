@@ -1,8 +1,8 @@
 var mediator = require("fh-wfm-mediator/lib/mediator");
 var chai = require('chai');
 var _ = require('lodash');
-var CONSTANTS = require('../../constants');
-var WorkflowClient = require('../workflow-client');
+var CONSTANTS = require('../lib/constants');
+var WorkflowClient = require('../lib/client/workflow-client/index');
 
 var expect = chai.expect;
 
@@ -33,7 +33,7 @@ describe("Workflow Create Mediator Topic", function() {
 
   beforeEach(function() {
     this.subscribers = {};
-    workflowSubscribers.on(CONSTANTS.TOPICS.CREATE, require('./create')(workflowSubscribers, workflowClient));
+    workflowSubscribers.on(CONSTANTS.TOPICS.CREATE, require('./../lib/client/mediator-subscribers/create')(workflowSubscribers, workflowClient));
   });
 
   afterEach(function() {
