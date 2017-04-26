@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for raincatcher-workflow/lib/cloud/server-spec.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">raincatcher-workflow/lib/cloud/</a> server-spec.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>65/65</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/0</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>16/16</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>65/65</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var express = require('express');
+var chai = require('chai');
+var expect = chai.expect;
+var app = express();
+var mockMbaasApi = {};
+var mediator = require('fh-wfm-mediator/lib/mediator.js');
+&nbsp;
+var CLOUD_TOPICS = {
+  create: "wfm:cloud:workflows:create",
+  list: "wfm:cloud:workflows:list",
+  update: "wfm:cloud:workflows:update",
+  read: "wfm:cloud:workflows:read",
+  delete: "wfm:cloud:workflows:delete"
+};
+var CLOUD_DATA_TOPICS = {
+  create: "wfm:cloud:data:workflows:create",
+  list: "wfm:cloud:data:workflows:list",
+  update: "wfm:cloud:data:workflows:update",
+  read: "wfm:cloud:data:workflows:read",
+  delete: "wfm:cloud:data:workflows:delete"
+};
+var DONE = 'done:';
+&nbsp;
+/**
+ * Set of unit tests for the sync topic subscribers
+ */
+describe('Workflow Sync', function() {
+  var workflowServer = require('./index.js');
+&nbsp;
+  //Create
+  it('should publish to done create cloud topic when the request to create a workflow has been completed', function() {
+    var mockWorkflowCreate = {value: 'test-workflow-create'};
+    var expectedWorkflowVal = "test-workflow-create";
+    var topicId = "testId";
+&nbsp;
+    workflowServer(mediator, app, mockMbaasApi);
+&nbsp;
+    //Mock of the data topic subscriber in the storage module
+    mediator.subscribe(CLOUD_DATA_TOPICS.create, function(createdWorkflow) {
+      //Publish to done create data topic to fake workflow creation by storage module
+      mediator.publish(DONE + CLOUD_DATA_TOPICS.create + ':' + createdWorkflow.id, createdWorkflow);
+    });
+&nbsp;
+    return mediator.request(CLOUD_TOPICS.create, [mockWorkflowCreate, topicId], {uid: topicId}).then(function(createdWorkflow) {
+      expect(createdWorkflow, 'Created workflow received should not be null or undefined').to.exist;
+      expect(createdWorkflow, 'Created workflow received should be an object').to.be.an('object');
+      expect(createdWorkflow.value, 'Created workflow received should have the same value as the original object passed').to.equal(expectedWorkflowVal);
+      expect(createdWorkflow.id, 'Created workflow received should have a generated string ID').to.be.a('string');
+    });
+&nbsp;
+  });
+&nbsp;
+  //List
+  it('should publish to done list cloud topic when the request to list a workflow has been completed', function() {
+    var mockWorkflowArray = [{id: 'test-workflow-1', value:'test-workflow'},
+      {id: 'test-workflow-2', value:'test-workflow'},
+      {id: 'test-workflow-3', value:'test-workflow'}];
+&nbsp;
+    var expectedWorkflowArray = [{id: 'test-workflow-1', value:'test-workflow'},
+      {id: 'test-workflow-2', value:'test-workflow'},
+      {id: 'test-workflow-3', value:'test-workflow'}];
+&nbsp;
+    workflowServer(mediator, app, mockMbaasApi);
+&nbsp;
+    //Mock of the data topic subscriber in the storage module
+    mediator.subscribe(CLOUD_DATA_TOPICS.list, function() {
+      //Publish to done list data topic to fake getting the list of workflows by storage module
+      mediator.publish(DONE + CLOUD_DATA_TOPICS.list, mockWorkflowArray);
+    });
+&nbsp;
+    return mediator.request(CLOUD_TOPICS.list).then(function(listWorkflow) {
+      expect(listWorkflow, 'List of workflows received should not be null or undefined').to.exist;
+      expect(listWorkflow, 'List of workflows received should be an array').to.be.an('array');
+      expect(listWorkflow, 'List of workflows received should have the same value as the list of workflows sent by the mock storage module').to.deep.equal(expectedWorkflowArray);
+    });
+&nbsp;
+  });
+&nbsp;
+  // Update
+  it('should publish to done update cloud topic when the request to update a workflow has been completed', function() {
+    var mockWorkflowUpdated = {id:'testID', value: 'workflow-updated'};
+    var expectedWorkflowUpdated = {id:'testID', value: 'workflow-updated'};
+&nbsp;
+    workflowServer(mediator, app, mockMbaasApi);
+&nbsp;
+    //Mock of the data topic subscriber in the storage module
+    mediator.subscribe(CLOUD_DATA_TOPICS.update, function(workflowToUpdate) {
+      //Publish to done update data topic to fake getting the update of workflows by storage module
+      mediator.publish(DONE + CLOUD_DATA_TOPICS.update + ':' + workflowToUpdate.id, workflowToUpdate);
+    });
+&nbsp;
+    mediator.request(CLOUD_TOPICS.update, mockWorkflowUpdated, {uid: mockWorkflowUpdated.id}).then(function(updatedWorkflow) {
+      expect(updatedWorkflow, 'Updated workflow received should not be null or undefined').to.exist;
+      expect(updatedWorkflow, 'Updated workflow received should be an object').to.be.an('object');
+      expect(updatedWorkflow, 'Updated workflow received should have the same value as the updated workflow sent by the mock storage module').to.deep.equal(expectedWorkflowUpdated);
+    });
+  });
+&nbsp;
+  //Read
+  it('should publish to done read cloud topic when the request to read a workflow has been completed', function() {
+    var mockWorkflowRead = {id:'testID', value: 'workflow-read'};
+    var expectedWorkflowRead = {id:'testID', value: 'workflow-read'};
+    var uid = "testID";
+&nbsp;
+    workflowServer(mediator, app, mockMbaasApi);
+&nbsp;
+    //Mock of the data topic subscriber in the storage module
+    mediator.subscribe(CLOUD_DATA_TOPICS.read, function(uid) {
+      //Publish to done read data topic to fake the reading of workflows by storage module
+      mediator.publish(DONE + CLOUD_DATA_TOPICS.read + ':' + uid, mockWorkflowRead);
+    });
+&nbsp;
+    return mediator.request(CLOUD_TOPICS.read, uid).then(function(readWorkflow) {
+      expect(readWorkflow, 'Read workflow received should not be null or undefined').to.exist;
+      expect(readWorkflow, 'Read workflow received should be an object').to.be.an('object');
+      expect(readWorkflow, 'Read workflow received should have the same value as the read workflow sent by the mock storage module').to.deep.equal(expectedWorkflowRead);
+    });
+  });
+&nbsp;
+  //Delete
+  it('should publish to done delete cloud topic when the request to delete a workflow has been completed', function() {
+    var mockWorkflowDelete = {id:'testID', value: 'workflow-deleted'};
+    var expectedWorkflowDeleted = {id:'testID', value: 'workflow-deleted'};
+    var uid = "testID";
+&nbsp;
+    workflowServer(mediator, app, mockMbaasApi);
+&nbsp;
+    //Mock of the data topic subscriber in the storage module
+    mediator.subscribe(CLOUD_DATA_TOPICS.delete, function(uid) {
+      //Publish to done delete data topic to fake the deleteing of workflows by storage module
+      mediator.publish(DONE + CLOUD_DATA_TOPICS.delete + ':' + uid, mockWorkflowDelete);
+    });
+&nbsp;
+    return mediator.request(CLOUD_TOPICS.delete, uid).then(function(deletedWorkflow) {
+      expect(deletedWorkflow, 'Deleted workflow received should not be null or undefined').to.exist;
+      expect(deletedWorkflow, 'Deleted workflow received should be an object').to.be.an('object');
+      expect(deletedWorkflow, 'Deleted workflow received should have the same value as the read workflow sent by the mock storage module').to.deep.equal(expectedWorkflowDeleted);
+    });
+  });
+&nbsp;
+});
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Apr 21 2017 13:42:02 GMT+0200 (CEST)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>
