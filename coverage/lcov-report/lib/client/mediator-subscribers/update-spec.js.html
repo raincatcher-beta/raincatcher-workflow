@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for lib/client/mediator-subscribers/update-spec.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">lib/client/mediator-subscribers/</a> update-spec.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>51/51</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/0</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>12/12</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>51/51</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var mediator = require("fh-wfm-mediator/lib/mediator");
+var chai = require('chai');
+var _ = require('lodash');
+var CONSTANTS = require('../../constants');
+var expect = chai.expect;
+&nbsp;
+var MediatorTopicUtility = require('fh-wfm-mediator/lib/topics');
+var WorkflowClient = require('../workflow-client');
+&nbsp;
+&nbsp;
+describe("Workflow Update Mediator Topic", function() {
+&nbsp;
+  var mockWorkflowToUpdate = {
+    id: "workflowidtoupdate",
+    name: "This is a mock Work Order"
+  };
+&nbsp;
+  var expectedUpdatedWorkflow =  _.defaults({name: "Updated Workflow"}, mockWorkflowToUpdate);
+&nbsp;
+  var topicUid = 'testtopicuid1';
+&nbsp;
+  var updateTopic = "wfm:workflows:update";
+  var doneUpdateTopic = "done:wfm:workflows:update:testtopicuid1";
+  var errorUpdateTopic = "error:wfm:workflows:update:testtopicuid1";
+&nbsp;
+  var syncUpdateTopic = "wfm:sync:workflows:update";
+  var doneSyncUpdateTopic = "done:wfm:sync:workflows:update";
+  var errorSyncUpdateTopic = "error:wfm:sync:workflows:update";
+&nbsp;
+  var workflowSubscribers = new MediatorTopicUtility(mediator);
+  workflowSubscribers.prefix(CONSTANTS.TOPIC_PREFIX).entity(CONSTANTS.WORKFLOW_ENTITY_NAME);
+&nbsp;
+  var workflowClient = WorkflowClient(mediator);
+&nbsp;
+  beforeEach(function() {
+    this.subscribers = {};
+    workflowSubscribers.on(CONSTANTS.TOPICS.UPDATE, require('./update')(workflowSubscribers, workflowClient));
+  });
+&nbsp;
+  afterEach(function() {
+    _.each(this.subscribers, function(subscriber, topic) {
+      mediator.remove(topic, subscriber.id);
+    });
+&nbsp;
+    workflowSubscribers.unsubscribeAll();
+  });
+&nbsp;
+  it('should use the sync topics to update a workflow', function() {
+    this.subscribers[syncUpdateTopic] = mediator.subscribe(syncUpdateTopic, function(parameters) {
+      expect(parameters.itemToUpdate).to.deep.equal(mockWorkflowToUpdate);
+      expect(parameters.topicUid).to.be.a('string');
+&nbsp;
+      mediator.publish(doneSyncUpdateTopic + ":" + parameters.topicUid, expectedUpdatedWorkflow);
+    });
+&nbsp;
+    var donePromise = mediator.promise(doneUpdateTopic);
+&nbsp;
+    mediator.publish(updateTopic, {
+      workflowToUpdate: mockWorkflowToUpdate,
+      topicUid: topicUid
+    });
+&nbsp;
+    return donePromise.then(function(updatedWorkflow) {
+      expect(updatedWorkflow).to.deep.equal(expectedUpdatedWorkflow);
+    });
+  });
+&nbsp;
+  it('should publish an error if there is no object to update', function() {
+    var errorPromise = mediator.promise(errorUpdateTopic);
+&nbsp;
+    mediator.publish(updateTopic, {
+      topicUid: topicUid
+    });
+&nbsp;
+    return errorPromise.then(function(error) {
+      expect(error.message).to.have.string("Invalid Data");
+    });
+  });
+&nbsp;
+  it('should handle an error from the sync create topic', function() {
+    var expectedError = new Error("Error performing sync operation");
+&nbsp;
+    this.subscribers[syncUpdateTopic] = mediator.subscribe(syncUpdateTopic, function(parameters) {
+      expect(parameters.itemToUpdate).to.deep.equal(mockWorkflowToUpdate);
+      expect(parameters.topicUid).to.be.a('string');
+&nbsp;
+      mediator.publish(errorSyncUpdateTopic + ":" + parameters.topicUid, expectedError);
+    });
+&nbsp;
+    var errorPromise = mediator.promise(errorUpdateTopic);
+&nbsp;
+    mediator.publish(updateTopic, {
+      workflowToUpdate: mockWorkflowToUpdate,
+      topicUid: topicUid
+    });
+&nbsp;
+    return errorPromise.then(function(error) {
+      expect(error).to.deep.equal(expectedError);
+    });
+  });
+});</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Apr 26 2017 11:03:28 GMT+0200 (CEST)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

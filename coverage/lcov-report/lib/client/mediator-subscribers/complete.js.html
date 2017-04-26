@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for lib/client/mediator-subscribers/complete.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">lib/client/mediator-subscribers/</a> complete.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">92.31% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>24/26</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">60% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>6/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">85.71% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>6/7</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">92.31% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>24/26</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var CONSTANTS = require('../../constants');
+var _ = require('lodash');
+&nbsp;
+/**
+ *
+ * Setting up a handler for the workflow step complete topic.
+ *
+ * @param {object} workflowStepSubscribers
+ * @param {WorkflowMediatorService}    workflowClient
+ */
+module.exports = function workflowStepDoneSubscriber(workflowStepSubscribers, workflowClient) {
+&nbsp;
+&nbsp;
+  /**
+   *
+   * Handling the complete topic for workflow steps.
+   *
+   * This handler updates the result of the current step
+   *
+   * @param {object} parameters
+   * @param {string} parameters.workorderId
+   * @param {object} parameters.submission
+   * @param {number} parameters.stepCode
+   *
+   */
+  return function handleWorkflowStepDone(parameters) {
+    var self = this;
+&nbsp;
+    var errorTopic = workflowStepSubscribers.getTopic(CONSTANTS.STEP_TOPICS.COMPLETE, CONSTANTS.ERROR_PREFIX, parameters.topicUid);
+    var doneTopic = workflowStepSubscribers.getTopic(CONSTANTS.STEP_TOPICS.COMPLETE, CONSTANTS.DONE_PREFIX, parameters.topicUid);
+&nbsp;
+    //Getting the currently logged in user data.
+    workflowClient.readUserProfile().then(function(profileData) {
+      return workflowClient.getWorkorderSummary(parameters.workorderId).then(function(workorderSummary) {
+        var workorder = workorderSummary[0];
+        var workflow = workorderSummary[1];
+        var result = workorderSummary[2];
+&nbsp;
+        if (!result) {
+          //No result exists, The workflow should have been started
+          return self.mediator.publish(errorTopic, new Error("No result exists for workorder " + parameters.workorderId + ". The workflow done topic can only be used for a workflow that has begun"));
+        }
+&nbsp;
+        var step = _.find(workflow.steps, function(step) {
+          return step.code === parameters.stepCode;
+        });
+&nbsp;
+        //If there is no step, then this step submission is invalid.
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (!step) {
+          //No result exists, The workflow should have been started
+<span class="cstat-no" title="statement not covered" >          return self.mediator.publish(errorTopic, new Error("Invalid step to assign completed data for workorder " + parameters.workorderId + " and step code " + parameters.stepCode));</span>
+        }
+&nbsp;
+        //Got the workflow, now we can create the step result.
+        var stepResult = {
+          step: step,
+          submission: parameters.submission,
+          type: step.formId ? <span class="branch-0 cbranch-no" title="branch not covered" >CONSTANTS.STEP_TYPES.APPFORM </span>: CONSTANTS.STEP_TYPES.STATIC,
+          status: CONSTANTS.STATUS.COMPLETE,
+          timestamp: new Date().getTime(),
+          submitter: profileData.id
+        };
+&nbsp;
+        //The result needs to be updated with the latest step results
+        result.stepResults = result.stepResults || <span class="branch-1 cbranch-no" title="branch not covered" >{};</span>
+        result.stepResults[step.code] = stepResult;
+        result.status = workflowClient.checkStatus(workorder, workflow, result);
+        result.nextStepIndex = workflowClient.stepReview(workflow.steps, result).nextStepIndex;
+&nbsp;
+&nbsp;
+&nbsp;
+        //Updating the result
+        return workflowClient.updateResult(result).then(function() {
+&nbsp;
+          //Result update complete, we can now publish the done topic for the step complete with the details of the next step for the user.
+          self.mediator.publish(doneTopic, {
+            workorder: workorder,
+            workflow: workflow,
+            result: result,
+            nextStepIndex: result.nextStepIndex,
+            step: result.nextStepIndex &gt; -1 ? workflow.steps[result.nextStepIndex] : <span class="branch-1 cbranch-no" title="branch not covered" >workflow.steps[0]</span>
+          });
+        });
+      });
+    }).catch(<span class="fstat-no" title="function not covered" >function(err) {</span>
+<span class="cstat-no" title="statement not covered" >      self.mediator.publish(errorTopic, err);</span>
+    });
+  };
+};</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Apr 26 2017 11:03:28 GMT+0200 (CEST)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>
