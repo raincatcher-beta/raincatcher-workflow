@@ -3,7 +3,7 @@ var chai = require('chai');
 var expect = chai.expect;
 require('sinon-as-promised');
 var _ = require('lodash');
-var WorkflowClient = require('./workflowClient');
+var WorkflowClient = require('./../../../lib/client/workflow-client/workflowClient');
 
 describe("Workflow Mediator Client", function() {
 
