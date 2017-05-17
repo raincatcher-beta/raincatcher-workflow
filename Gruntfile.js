@@ -6,6 +6,16 @@ module.exports = function(grunt) {
     eslint: {
       src: ["lib/**/*.js"]
     },
+    mocha_istanbul: {
+      coveralls: {
+        src: ['test/**/*.js'],
+        options: {
+          coverage: true,
+          root: './lib',
+          reportFormats: ['lcovonly']
+        }
+      }
+    },
     mochaTest: {
       test: {
         src: ['test/**/*-spec.js'],
@@ -18,6 +28,8 @@ module.exports = function(grunt) {
       }
     }
   });
+  grunt.loadNpmTasks('grunt-mocha-istanbul');
+  grunt.registerTask('coveralls',['mocha_istanbul:coveralls']);
   grunt.registerTask('test', ['eslint', 'mochaTest']);
-  grunt.registerTask('default', ['test']);
+  grunt.registerTask('default', ['test','coveralls']);
 };
