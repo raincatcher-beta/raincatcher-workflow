@@ -11,7 +11,7 @@
     "workflow"
   ],
   "scripts": {
-    "test": "grunt test"
+    "test": "grunt"
   },
   "author": "Brian Leathem",
   "license": "MIT",
