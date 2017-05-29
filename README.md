@@ -1,4 +1,4 @@
-# FeedHenry WFM workflow
+# FeedHenry WFM workflow [![Coverage Status](https://coveralls.io/repos/github/feedhenry-raincatcher/raincatcher-workflow/badge.svg?branch=master)](https://coveralls.io/github/feedhenry-raincatcher/raincatcher-workflow?branch=master)
 
 This module contains a workflow model representation and its related services :
 - Backend services
