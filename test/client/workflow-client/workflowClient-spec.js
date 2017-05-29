@@ -3,8 +3,7 @@ var chai = require('chai');
 var expect = chai.expect;
 require('sinon-as-promised');
 var _ = require('lodash');
-var WorkflowClient = require('./workflowClient');
-var CONSTANTS = require('../../constants');
+var WorkflowClient = require('./../../../lib/client/workflow-client/workflowClient');
 
 describe("Workflow Mediator Client", function() {
 
@@ -34,12 +33,6 @@ describe("Workflow Mediator Client", function() {
         view: "<mockview3template></mockview3template>"
       }
     }]
-  };
-
-  var mockWorkorder = {
-    id: "mockworkorderid",
-    workflowId: "mockworkflowid",
-    assignee: "userid"
   };
 
   var mockResult = {
@@ -144,12 +137,6 @@ describe("Workflow Mediator Client", function() {
         nextStepIndex: 3,
         complete: true
       });
-    });
-
-    it("should return new if there is no result for a workflow", function() {
-      var status = workflowClient.checkStatus(mockWorkorder, mockWorkflow);
-
-      expect(status).to.equal(CONSTANTS.STATUS.NEW_DISPLAY);
     });
 
   });

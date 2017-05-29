@@ -1,11 +1,11 @@
 var mediator = require("fh-wfm-mediator/lib/mediator");
 var chai = require('chai');
 var _ = require('lodash');
-var CONSTANTS = require('../../constants');
+var CONSTANTS = require('../../../lib/constants');
 var expect = chai.expect;
 
 var MediatorTopicUtility = require('fh-wfm-mediator/lib/topics');
-var WorkflowClient = require('../workflow-client');
+var WorkflowClient = require('../../../lib/client/workflow-client/index');
 
 describe("Workflow Remove Mediator Topic", function() {
 
@@ -29,7 +29,7 @@ describe("Workflow Remove Mediator Topic", function() {
 
   beforeEach(function() {
     this.subscribers = {};
-    workflowSubscribers.on(CONSTANTS.TOPICS.REMOVE, require('./remove')(workflowSubscribers, workflowClient));
+    workflowSubscribers.on(CONSTANTS.TOPICS.REMOVE, require('./../../../lib/client/mediator-subscribers/remove')(workflowSubscribers, workflowClient));
   });
 
   afterEach(function() {
