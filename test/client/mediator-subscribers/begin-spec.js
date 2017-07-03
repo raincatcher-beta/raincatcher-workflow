@@ -80,7 +80,6 @@ describe("Beginning A Workflow For A Single Workorder", function() {
         throw new Error("Expected the create result topic not to be called");
       }
 
-      expect(parameters.resultToCreate).to.deep.equal(newResult);
       expect(parameters.topicUid).to.be.a('string');
 
       mediator.publish(createResultDoneTopic + ":" + parameters.topicUid, newResult);
